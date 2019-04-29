@@ -3,12 +3,14 @@
 
 typedef char string[100];
 
+//struktur untuk tugas
 struct nilai_tugas{
 	
 	int nilai;
 	
 };
 
+//struktur untuk menyimpan data mahasiswa
 struct siswa{
 	
 	string nama;
@@ -53,16 +55,25 @@ int main(){
 	}
 	
 	//menampilkan data yang telah dimasukan
-	printf("NIM\tNama\t\tTugas\n");
-	printf("\t\tTugas1\tTugas2\tTugas3\n");
+	printf("NIM\tNama\t\tTugas 20%\n");
+	printf("\t\tI\tII\tIII\t20%\n");
 		
 	for(int i = 0; i < jumlah_data; i++){
 		
 		printf("%s\t%s",mahasiswa[i].nim,mahasiswa[i].nama);
 		
+		//menampilkan nilai tugas
+		
+		int total_tugas = 0;
+		
 		for(int j = 0; j < 3; j++){
+			
+			total_tugas += mahasiswa[i].tugas[j].nilai * 20 / 100;
+			
 			printf("\t%d",mahasiswa[i].tugas[j].nilai);
 		}
+		printf("\t%d",total_tugas);	
+	
 		printf("\n");
 		
 		
