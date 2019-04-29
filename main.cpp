@@ -58,7 +58,7 @@ struct siswa{
 	int total_final;
 	int total_grade;
 	
-	struct grade_huruf_angka grade[100];
+	struct grade_huruf_angka grade;
 	struct nilai_tugas tugas[3];
 	struct nilai_kuis kuis[4];
 	struct nilai_project project;
@@ -171,46 +171,46 @@ int main(){
 	
 		//menampilkan nilai final
 		mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
-		mahasiswa[i].grade[i].angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
-		printf("\t%d\t%d",mahasiswa[i].total_final,mahasiswa[i].grade[i].angka);
+		mahasiswa[i].grade.angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
+		printf("\t%d\t%d",mahasiswa[i].total_final,mahasiswa[i].grade.angka);
 	
 		//menentukan grade yang didapat
 //		int grade = total_tugas + total_kuis + total_project + total_mid + total_final;
 //		printf("\t%d",grade);
 
 		//menentukan grade sebagai huruf
-		if(mahasiswa[i].grade[i].angka >= 91 && mahasiswa[i].grade[i].angka <= 100){
-			strcpy(mahasiswa[i].grade[i].huruf,"A");
+		if(mahasiswa[i].grade.angka >= 91 && mahasiswa[i].grade.angka <= 100){
+			strcpy(mahasiswa[i].grade.huruf,"A");
 		}
-		else if(mahasiswa[i].grade[i].angka >= 85 && mahasiswa[i].grade[i].angka <= 90){
-			strcpy(mahasiswa[i].grade[i].huruf,"A-");
+		else if(mahasiswa[i].grade.angka >= 85 && mahasiswa[i].grade.angka <= 90){
+			strcpy(mahasiswa[i].grade.huruf,"A-");
 		}
-		else if(mahasiswa[i].grade[i].angka >= 82 && mahasiswa[i].grade[i].angka <= 84){
-			strcpy(mahasiswa[i].grade[i].huruf,"B+");
+		else if(mahasiswa[i].grade.angka >= 82 && mahasiswa[i].grade.angka <= 84){
+			strcpy(mahasiswa[i].grade.huruf,"B+");
 		}
-		else if(mahasiswa[i].grade[i].angka >= 78 && mahasiswa[i].grade[i].angka <= 81){
-			strcpy(mahasiswa[i].grade[i].huruf,"B");
+		else if(mahasiswa[i].grade.angka >= 78 && mahasiswa[i].grade.angka <= 81){
+			strcpy(mahasiswa[i].grade.huruf,"B");
 		}
-		else if(mahasiswa[i].grade[i].angka >= 75 && mahasiswa[i].grade[i].angka <= 77){
-			strcpy(mahasiswa[i].grade[i].huruf,"B-");
+		else if(mahasiswa[i].grade.angka >= 75 && mahasiswa[i].grade.angka <= 77){
+			strcpy(mahasiswa[i].grade.huruf,"B-");
 		}
-		else if(mahasiswa[i].grade[i].angka >= 70 && mahasiswa[i].grade[i].angka <= 74){
-			strcpy(mahasiswa[i].grade[i].huruf,"C+");
+		else if(mahasiswa[i].grade.angka >= 70 && mahasiswa[i].grade.angka <= 74){
+			strcpy(mahasiswa[i].grade.huruf,"C+");
 		}
-		else if(mahasiswa[i].grade[i].angka >= 67 && mahasiswa[i].grade[i].angka <= 69){
-			strcpy(mahasiswa[i].grade[i].huruf,"C");
+		else if(mahasiswa[i].grade.angka >= 67 && mahasiswa[i].grade.angka <= 69){
+			strcpy(mahasiswa[i].grade.huruf,"C");
 		}
-		else if(mahasiswa[i].grade[i].angka >=60 && mahasiswa[i].grade[i].angka <= 66){
-			strcpy(mahasiswa[i].grade[i].huruf,"C-");
+		else if(mahasiswa[i].grade.angka >=60 && mahasiswa[i].grade.angka <= 66){
+			strcpy(mahasiswa[i].grade.huruf,"C-");
 		}
-		else if(mahasiswa[i].grade[i].angka >=40 && mahasiswa[i].grade[i].angka <=50){
-			strcpy(mahasiswa[i].grade[i].huruf,"D");
+		else if(mahasiswa[i].grade.angka >=40 && mahasiswa[i].grade.angka <=50){
+			strcpy(mahasiswa[i].grade.huruf,"D");
 		}
 		else{
-			strcpy(mahasiswa[i].grade[i].huruf,"XX");
+			strcpy(mahasiswa[i].grade.huruf,"XX");
 		}
 		//menampilkan grade sebagai huruf
-		printf("\t%s",mahasiswa[i].grade[i].huruf);
+		printf("\t%s",mahasiswa[i].grade.huruf);
 	
 		
 		printf("\n");
