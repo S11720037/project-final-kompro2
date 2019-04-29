@@ -53,7 +53,9 @@ int main(){
 	}
 	
 	//menampilkan data yang telah dimasukan
-	printf("NIM\tNama\tTugas1\tTugas2\tTugas3\n");
+	printf("NIM\tNama\t\tTugas\n");
+	printf("\t\tTugas1\tTugas2\tTugas3\n");
+		
 	for(int i = 0; i < jumlah_data; i++){
 		
 		printf("%s\t%s",mahasiswa[i].nim,mahasiswa[i].nama);
