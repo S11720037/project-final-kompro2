@@ -56,6 +56,7 @@ struct siswa{
 	int total_project;
 	int total_mid;
 	int total_final;
+	int total_grade;
 	
 	struct grade_huruf_angka grade[100];
 	struct nilai_tugas tugas[3];
@@ -70,6 +71,11 @@ int main(){
 	int jumlah_data;
 	int nilai_tugas_min;
 	int nilai_kuis_min;	
+	int nilai_project_min;
+	int nilai_mid_min;
+	int nilai_final_min;
+	int nilai_grade_min;
+	
 	
 	printf("Input jumlah data yang akan dimasukan : ");
 	scanf("%d",&jumlah_data);
@@ -206,6 +212,8 @@ int main(){
 		//menampilkan grade sebagai huruf
 		printf("\t%s",mahasiswa[i].grade[i].huruf);
 	
+	
+	
 		//mencari nilai tugas terendah
 		nilai_tugas_min = mahasiswa[0].total_tugas;
 		for(int j = 0; j < 3; j++){
@@ -224,10 +232,46 @@ int main(){
 			}
 		}
 		
+		//mencari nilai project terendah
+		nilai_project_min = mahasiswa[0].total_project;
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_project < nilai_project_min){
+				nilai_project_min = mahasiswa[i].total_project;
+			}
+		}
+		
+		//mencari nilai mid terendah
+		nilai_mid_min = mahasiswa[0].total_mid;
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_mid < nilai_mid_min){
+				nilai_mid_min = mahasiswa[i].total_mid;
+			}
+		}
+		
+		//mencari nilai final terendah
+		nilai_final_min = mahasiswa[0].total_final;
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_final < nilai_final_min){
+				nilai_final_min = mahasiswa[i].total_final;
+			}
+		}
+		
+		//mencari nilai grade terendah
+		nilai_grade_min = mahasiswa[0].total_grade;
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_grade < nilai_grade_min){
+				nilai_grade_min = mahasiswa[i].total_grade;
+			}
+		}
+		
 		printf("\n");
 		
 		
 	}
 	printf("\n\nNilai tugas terendah : %d",nilai_tugas_min);
 	printf("\n\nNilai kuis terendah : %d",nilai_kuis_min);	
+	printf("\n\nNilai project terendah : %d",nilai_project_min);
+	printf("\n\nNilai MID terendah : %d",nilai_mid_min);
+	printf("\n\nNilai final terendah : %d",nilai_final_min);
+//	printf("\n\nNilai grade terendah : %d",nilai_grade_min);		
 }
