@@ -10,6 +10,13 @@ struct nilai_tugas{
 	
 };
 
+//struktur untuk kuis
+struct nilai_kuis{
+	
+	int nilai;
+	
+};
+
 //struktur untuk menyimpan data mahasiswa
 struct siswa{
 	
@@ -17,7 +24,7 @@ struct siswa{
 	string nim;
 	
 	struct nilai_tugas tugas[3];
-	
+	struct nilai_kuis kuis[4];
 };
 
 int main(){
@@ -52,11 +59,19 @@ int main(){
 			scanf("%d",&mahasiswa[i].tugas[j].nilai);
 		}	
 		
+		//memasukan nilai kuis
+		printf("\nKuis\n");
+		for(int j = 0; j < 4; j++){
+		
+		printf("Masukan nilai ke-%d : ",j+1);
+		scanf("%d",&mahasiswa[i].kuis[j].nilai);
+		}
+		
 	}
 	
 	//menampilkan data yang telah dimasukan
-	printf("NIM\tNama\t\tTugas 20%\n");
-	printf("\t\tI\tII\tIII\t20%\n");
+	printf("NIM\tNama\tTugas 20a\t\tKuis 20a\n");
+	printf("\t\tI\tII\tIII\t20a\tI\tII\tIII\tIV\t15a\n");
 		
 	for(int i = 0; i < jumlah_data; i++){
 		
@@ -73,6 +88,17 @@ int main(){
 			printf("\t%d",mahasiswa[i].tugas[j].nilai);
 		}
 		printf("\t%d",total_tugas);	
+		
+		//menampilkan nilai kuis
+		int total_kuis;
+		for(int j = 0; j < 4; j++){
+			
+			total_kuis += mahasiswa[i].kuis[j].nilai * 15 / 100;
+			
+			printf("\t%d",mahasiswa[i].kuis[j].nilai);
+		}
+		printf("\t%d",total_kuis);
+		
 	
 		printf("\n");
 		
