@@ -212,10 +212,23 @@ int main(){
 		//menampilkan grade sebagai huruf
 		printf("\t%s",mahasiswa[i].grade[i].huruf);
 	
+		
+		printf("\n");
+		
+		
+	}
 	
+	//mencari nilai terendah
+	nilai_tugas_min = mahasiswa[0].total_tugas;
+	nilai_kuis_min = mahasiswa[0].total_kuis;
+	nilai_project_min = mahasiswa[0].total_project;
+	nilai_final_min = mahasiswa[0].total_final;
+	nilai_grade_min = mahasiswa[0].total_grade;
+		
 	
+	for(int i = 0; i < jumlah_data; i++){
+		
 		//mencari nilai tugas terendah
-		nilai_tugas_min = mahasiswa[0].total_tugas;
 		for(int j = 0; j < 3; j++){
 			if(mahasiswa[i].total_tugas < nilai_tugas_min){
 				nilai_tugas_min = mahasiswa[i].total_tugas;
@@ -225,7 +238,6 @@ int main(){
 	
 	
 		//mencari nilai kuis terendah
-		nilai_kuis_min = mahasiswa[0].total_kuis;
 		for(int j = 0; j < 3; j++){
 			if(mahasiswa[i].total_kuis < nilai_kuis_min){
 				nilai_kuis_min = mahasiswa[i].total_kuis;
@@ -233,7 +245,6 @@ int main(){
 		}
 		
 		//mencari nilai project terendah
-		nilai_project_min = mahasiswa[0].total_project;
 		for(int j = 0; j < 3; j++){
 			if(mahasiswa[i].total_project < nilai_project_min){
 				nilai_project_min = mahasiswa[i].total_project;
@@ -249,7 +260,6 @@ int main(){
 		}
 		
 		//mencari nilai final terendah
-		nilai_final_min = mahasiswa[0].total_final;
 		for(int j = 0; j < 3; j++){
 			if(mahasiswa[i].total_final < nilai_final_min){
 				nilai_final_min = mahasiswa[i].total_final;
@@ -257,17 +267,14 @@ int main(){
 		}
 		
 		//mencari nilai grade terendah
-		nilai_grade_min = mahasiswa[0].total_grade;
 		for(int j = 0; j < 3; j++){
 			if(mahasiswa[i].total_grade < nilai_grade_min){
 				nilai_grade_min = mahasiswa[i].total_grade;
 			}
 		}
 		
-		printf("\n");
-		
-		
 	}
+	
 	printf("\n\nNilai tugas terendah : %d",nilai_tugas_min);
 	printf("\n\nNilai kuis terendah : %d",nilai_kuis_min);	
 	printf("\n\nNilai project terendah : %d",nilai_project_min);
