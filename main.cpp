@@ -69,12 +69,13 @@ struct siswa{
 int main(){
 	
 	int jumlah_data;
-	int nilai_tugas_min;
-	int nilai_kuis_min;	
-	int nilai_project_min;
-	int nilai_mid_min;
-	int nilai_final_min;
-	int nilai_grade_angka_min;
+	
+	int nilai_tugas_min,nilai_tugas_max;
+	int nilai_kuis_min,nilai_kuis_max;	
+	int nilai_project_min,nilai_project_max;
+	int nilai_mid_min,nilai_mid_max;
+	int nilai_final_min,nilai_final_max;
+	int nilai_grade_angka_min,nilai_grade_angka_max;
 	
 	
 	printf("Input jumlah data yang akan dimasukan : ");
@@ -274,10 +275,77 @@ int main(){
 		
 	}
 	
+	//menampilkan nilai terendah yang telah dicari
 	printf("\n\nNilai tugas terendah : %d",nilai_tugas_min);
 	printf("\n\nNilai kuis terendah : %d",nilai_kuis_min);	
 	printf("\n\nNilai project terendah : %d",nilai_project_min);
 	printf("\n\nNilai MID terendah : %d",nilai_mid_min);
 	printf("\n\nNilai final terendah : %d",nilai_final_min);
 	printf("\n\nNilai grade terendah : %d",nilai_grade_angka_min);		
+	
+	
+	//mencari nilai tertinggi
+	nilai_tugas_max = mahasiswa[0].total_tugas;
+	nilai_kuis_max = mahasiswa[0].total_kuis;
+	nilai_project_max = mahasiswa[0].total_project;
+	nilai_final_max = mahasiswa[0].total_final;
+	nilai_grade_angka_max = mahasiswa[0].total_grade;
+	
+	for(int i = 0; i < jumlah_data; i++){
+		
+		//mencari nilai tugas terendah
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_tugas > nilai_tugas_max){
+				nilai_tugas_max = mahasiswa[i].total_tugas;
+			}
+		}
+//		printf("\n\nNilai tugas terendah : %d",nilai_tugas_max);
+	
+	
+		//mencari nilai kuis terendah
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_kuis > nilai_kuis_max){
+				nilai_kuis_max = mahasiswa[i].total_kuis;
+			}
+		}
+		
+		//mencari nilai project terendah
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_project > nilai_project_max){
+				nilai_project_max = mahasiswa[i].total_project;
+			}
+		}
+		
+		//mencari nilai mid terendah
+		nilai_mid_max = mahasiswa[0].total_mid;
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_mid > nilai_mid_max){
+				nilai_mid_max = mahasiswa[i].total_mid;
+			}
+		}
+		
+		//mencari nilai final terendah
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_final > nilai_final_max){
+				nilai_final_max = mahasiswa[i].total_final;
+			}
+		}
+		
+		//mencari nilai grade terendah
+		for(int j = 0; j < 3; j++){
+			if(mahasiswa[i].total_grade > nilai_grade_angka_max){
+				nilai_grade_angka_max = mahasiswa[i].total_grade;
+			}
+		}
+		
+	}
+	
+		//menampilkan nilai terendah yang telah dicari
+	printf("\n\nNilai tugas tertinggi : %d",nilai_tugas_max);
+	printf("\n\nNilai kuis tertinggi : %d",nilai_kuis_max);	
+	printf("\n\nNilai project tertinggi : %d",nilai_project_max);
+	printf("\n\nNilai MID tertinggi : %d",nilai_mid_max);
+	printf("\n\nNilai final tertinggi : %d",nilai_final_max);
+	printf("\n\nNilai grade tertinggi : %d",nilai_grade_angka_max);
+	
 }
