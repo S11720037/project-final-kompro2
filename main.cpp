@@ -277,12 +277,12 @@ int main(){
 	}
 	
 	//menampilkan nilai terendah yang telah dicari
-	printf("\n\nNilai tugas terendah : %d",nilai_tugas_min);
-	printf("\n\nNilai kuis terendah : %d",nilai_kuis_min);	
-	printf("\n\nNilai project terendah : %d",nilai_project_min);
-	printf("\n\nNilai MID terendah : %d",nilai_mid_min);
-	printf("\n\nNilai final terendah : %d",nilai_final_min);
-	printf("\n\nNilai grade terendah : %d",nilai_grade_angka_min);		
+	printf("\nNilai tugas terendah : %d",nilai_tugas_min);
+	printf("\nNilai kuis terendah : %d",nilai_kuis_min);	
+	printf("\nNilai project terendah : %d",nilai_project_min);
+	printf("\nNilai MID terendah : %d",nilai_mid_min);
+	printf("\nNilai final terendah : %d",nilai_final_min);
+	printf("\nNilai grade terendah : %d",nilai_grade_angka_min);		
 	
 	
 	//mencari nilai tertinggi
@@ -342,12 +342,12 @@ int main(){
 	}
 	
 		//menampilkan nilai terendah yang telah dicari
-	printf("\n\nNilai tugas tertinggi : %d",nilai_tugas_max);
-	printf("\n\nNilai kuis tertinggi : %d",nilai_kuis_max);	
-	printf("\n\nNilai project tertinggi : %d",nilai_project_max);
-	printf("\n\nNilai MID tertinggi : %d",nilai_mid_max);
-	printf("\n\nNilai final tertinggi : %d",nilai_final_max);
-	printf("\n\nNilai grade tertinggi : %d",nilai_grade_angka_max);
+	printf("\nNilai tugas tertinggi : %d",nilai_tugas_max);
+	printf("\nNilai kuis tertinggi : %d",nilai_kuis_max);	
+	printf("\nNilai project tertinggi : %d",nilai_project_max);
+	printf("\nNilai MID tertinggi : %d",nilai_mid_max);
+	printf("\nNilai final tertinggi : %d",nilai_final_max);
+	printf("\nNilai grade tertinggi : %d",nilai_grade_angka_max);
 	
 	
 	//mencari siswa yang tidak lulus
@@ -359,12 +359,12 @@ int main(){
 		
 	}
 	
-	printf("Jumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
+	printf("\nJumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
 	
-	printf("\n\n");
+	printf("\n");
+	
 	
 //menampilkan nilai frekuensi nilai grade
-	
 	//sebelum ditampilkan, data harus di urutkan dahulu
 	
 	for(int i = 0; i < jumlah_data; i++){
@@ -373,11 +373,17 @@ int main(){
 			
 			if(mahasiswa[i].grade.angka < mahasiswa[j].grade.angka){
 				
-				int temp;
-				
-				temp = mahasiswa[i].grade.angka;
+				//mengurutkan grade mahasiswa
+				int temp_angka;
+				temp_angka = mahasiswa[i].grade.angka;
 				mahasiswa[i].grade.angka = mahasiswa[j].grade.angka;
-				mahasiswa[j].grade.angka = temp;
+				mahasiswa[j].grade.angka = temp_angka;
+				
+				//mengurukan grade mahasiswa
+				string temp_string;
+				strcpy(temp_string,mahasiswa[i].grade.huruf);
+				strcpy(mahasiswa[i].grade.huruf,mahasiswa[j].grade.huruf);
+				strcpy(mahasiswa[j].grade.huruf,temp_string);
 				
 			}
 			
@@ -386,12 +392,40 @@ int main(){
 	}	
 	
 	//hasil pengurutan
+//	for(int i = 0; i < jumlah_data; i++){
+//		
+//		printf("Hasil pengurutan : %s\n",mahasiswa[i].grade.huruf);
+//		
+//	}
+	
+	//menampilkan hasil pengurutan sebagai frekuensi
 	for(int i = 0; i < jumlah_data; i++){
 		
-		printf("Hasil pengurutan : %d\n",mahasiswa[i].grade.angka);
+		int counter = 0;
 		
+		for(int j = 0; j < jumlah_data; j++){
+			
+			int temp;
+			
+			temp = strcmp(mahasiswa[i].grade.huruf,mahasiswa[j].grade.huruf);
+			
+			if(temp == 0){
+				
+				counter += 1;
+				
+			}
+			
+		}
+		
+		int temp;
+		
+		temp = strcmp(mahasiswa[i].grade.huruf,mahasiswa[i-1].grade.huruf);
+		
+		if(temp != 0){
+			
+			printf("%s muncul = %d\n",mahasiswa[i].grade.huruf,counter);
+			
+		}
 	}
-	
-	
 	
 }
