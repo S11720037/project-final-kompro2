@@ -158,7 +158,7 @@ int main(){
 			
 			mahasiswa[i].total_kuis = mahasiswa[i].kuis[j].nilai * 15 / 100;
 			
-			printf("\t%d",mahasiswa[i].total_kuis);
+			printf("\t%d",mahasiswa[i].kuis[j].nilai);
 		}
 		printf("\t%d",mahasiswa[i].total_kuis);
 		
