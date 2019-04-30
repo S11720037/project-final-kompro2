@@ -134,8 +134,16 @@ int main(){
 	}
 	
 	//menampilkan data yang telah dimasukan
-	printf("\n\nNIM\tNama\tTugas 20a\t\t\tKuis 10a\t\t\t\tProject 15a\tMID 25a\tFinal 25a\tGrade\tHuruf\n");
-//	printf("\t\tI\tII\tIII\t20a\tI\tII\tIII\tIV\t10a\t15a\t\t25a\t25a\n");
+	printf("=================================================================================================================================================================\n");
+	printf("=\t=\t=\t\t\t\t=\t\t\t\t\t=\t\t=\t\t=\t\t=\t=\t=\n");
+	printf("= NIM\t= Nama\t= Tugas 20a\t\t\t= Kuis 10a\t\t\t\t= Project 15a\t= MID 25a\t= Final 25a\t= Grade\t= Huruf\t=\n");
+	printf("=\t=\t=\t\t\t\t=\t\t\t\t\t=\t\t=\t\t=\t\t=\t=\t=\n");
+	printf("=================================================================================================================================================================\n");	
+	printf("=\t\t=\t=\t=\t=\t=\t=\t=\t=\t=\t=\t\t=\t\t=\t\t=\t\t=\n");
+	printf("=\t\t= I\t= II\t= III\t= 20a\t= I\t= II\t= III\t= IV\t= 10a\t= 15a\t\t= 25a\t\t= 25a\t\t=\t\t=\n");
+	printf("=\t\t=\t=\t=\t=\t=\t=\t=\t=\t=\t=\t\t=\t\t=\t\t=\t\t=\n");
+	printf("=================================================================================================================================================================\n");	
+		
 		
 	for(int i = 0; i < jumlah_data; i++){
 		
