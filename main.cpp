@@ -74,7 +74,7 @@ int main(){
 	int nilai_project_min;
 	int nilai_mid_min;
 	int nilai_final_min;
-	int nilai_grade_min;
+	int nilai_grade_angka_min;
 	
 	
 	printf("Input jumlah data yang akan dimasukan : ");
@@ -169,10 +169,10 @@ int main(){
 		mahasiswa[i].total_mid = (mahasiswa[i].mid.nilai * 25 / 100);
 		printf("\t\t%d",mahasiswa[i].total_mid);
 	
-		//menampilkan nilai final
+		//menampilkan nilai final dsan grade
 		mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
-		mahasiswa[i].grade.angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
-		printf("\t%d\t%d",mahasiswa[i].total_final,mahasiswa[i].grade.angka);
+		mahasiswa[i].total_grade = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
+		printf("\t%d\t%d",mahasiswa[i].total_final,mahasiswa[i].total_grade);
 	
 		//menentukan grade yang didapat
 //		int grade = total_tugas + total_kuis + total_project + total_mid + total_final;
@@ -223,8 +223,7 @@ int main(){
 	nilai_kuis_min = mahasiswa[0].total_kuis;
 	nilai_project_min = mahasiswa[0].total_project;
 	nilai_final_min = mahasiswa[0].total_final;
-	nilai_grade_min = mahasiswa[0].total_grade;
-		
+	nilai_grade_angka_min = mahasiswa[0].total_grade;
 	
 	for(int i = 0; i < jumlah_data; i++){
 		
@@ -268,8 +267,8 @@ int main(){
 		
 		//mencari nilai grade terendah
 		for(int j = 0; j < 3; j++){
-			if(mahasiswa[i].total_grade < nilai_grade_min){
-				nilai_grade_min = mahasiswa[i].total_grade;
+			if(mahasiswa[i].total_grade < nilai_grade_angka_min){
+				nilai_grade_angka_min = mahasiswa[i].total_grade;
 			}
 		}
 		
@@ -280,5 +279,5 @@ int main(){
 	printf("\n\nNilai project terendah : %d",nilai_project_min);
 	printf("\n\nNilai MID terendah : %d",nilai_mid_min);
 	printf("\n\nNilai final terendah : %d",nilai_final_min);
-//	printf("\n\nNilai grade terendah : %d",nilai_grade_min);		
+	printf("\n\nNilai grade terendah : %d",nilai_grade_angka_min);		
 }
