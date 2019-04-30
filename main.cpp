@@ -56,7 +56,7 @@ struct siswa{
 	int total_project;
 	int total_mid;
 	int total_final;
-	int total_grade;
+	
 	
 	struct grade_huruf_angka grade;
 	struct nilai_tugas tugas[3];
@@ -269,7 +269,7 @@ int main(){
 		
 		//mencari nilai grade terendah
 		for(int j = 0; j < 3; j++){
-			if(mahasiswa[i].total_grade < nilai_grade_angka_min){
+			if(mahasiswa[i].grade.angka < nilai_grade_angka_min){
 				nilai_grade_angka_min = mahasiswa[i].grade.angka;
 			}
 		}
@@ -334,7 +334,7 @@ int main(){
 		
 		//mencari nilai grade terendah
 		for(int j = 0; j < 3; j++){
-			if(mahasiswa[i].total_grade > nilai_grade_angka_max){
+			if(mahasiswa[i].grade.angka > nilai_grade_angka_max){
 				nilai_grade_angka_max = mahasiswa[i].grade.angka;
 			}
 		}
