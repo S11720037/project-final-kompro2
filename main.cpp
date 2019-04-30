@@ -361,6 +361,36 @@ int main(){
 	
 	printf("Jumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
 	
+	printf("\n\n");
+	
+//menampilkan nilai frekuensi nilai grade
+	
+	//sebelum ditampilkan, data harus di urutkan dahulu
+	
+	for(int i = 0; i < jumlah_data; i++){
+			
+		for(int j = 0; j < jumlah_data; j++){
+			
+			if(mahasiswa[i].grade.angka < mahasiswa[j].grade.angka){
+				
+				int temp;
+				
+				temp = mahasiswa[i].grade.angka;
+				mahasiswa[i].grade.angka = mahasiswa[j].grade.angka;
+				mahasiswa[j].grade.angka = temp;
+				
+			}
+			
+		}
+		
+	}	
+	
+	//hasil pengurutan
+	for(int i = 0; i < jumlah_data; i++){
+		
+		printf("Hasil pengurutan : %d\n",mahasiswa[i].grade.angka);
+		
+	}
 	
 	
 	
