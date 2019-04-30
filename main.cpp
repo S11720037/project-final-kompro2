@@ -69,6 +69,7 @@ struct siswa{
 int main(){
 	
 	int jumlah_data;
+	int tidak_lulus = 0;
 	
 	int nilai_tugas_min,nilai_tugas_max;
 	int nilai_kuis_min,nilai_kuis_max;	
@@ -170,10 +171,10 @@ int main(){
 		mahasiswa[i].total_mid = (mahasiswa[i].mid.nilai * 25 / 100);
 		printf("\t\t%d",mahasiswa[i].total_mid);
 	
-		//menampilkan nilai final dsan grade
+		//menampilkan nilai final dan grade
 		mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
-		mahasiswa[i].total_grade = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
-		printf("\t%d\t%d",mahasiswa[i].total_final,mahasiswa[i].total_grade);
+		mahasiswa[i].grade.angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
+		printf("\t%d\t%d",mahasiswa[i].total_final,mahasiswa[i].grade.angka);
 	
 		//menentukan grade yang didapat
 //		int grade = total_tugas + total_kuis + total_project + total_mid + total_final;
@@ -224,7 +225,7 @@ int main(){
 	nilai_kuis_min = mahasiswa[0].total_kuis;
 	nilai_project_min = mahasiswa[0].total_project;
 	nilai_final_min = mahasiswa[0].total_final;
-	nilai_grade_angka_min = mahasiswa[0].total_grade;
+	nilai_grade_angka_min = mahasiswa[0].grade.angka;
 	
 	for(int i = 0; i < jumlah_data; i++){
 		
@@ -269,7 +270,7 @@ int main(){
 		//mencari nilai grade terendah
 		for(int j = 0; j < 3; j++){
 			if(mahasiswa[i].total_grade < nilai_grade_angka_min){
-				nilai_grade_angka_min = mahasiswa[i].total_grade;
+				nilai_grade_angka_min = mahasiswa[i].grade.angka;
 			}
 		}
 		
@@ -289,7 +290,7 @@ int main(){
 	nilai_kuis_max = mahasiswa[0].total_kuis;
 	nilai_project_max = mahasiswa[0].total_project;
 	nilai_final_max = mahasiswa[0].total_final;
-	nilai_grade_angka_max = mahasiswa[0].total_grade;
+	nilai_grade_angka_max = mahasiswa[0].grade.angka;
 	
 	for(int i = 0; i < jumlah_data; i++){
 		
@@ -334,7 +335,7 @@ int main(){
 		//mencari nilai grade terendah
 		for(int j = 0; j < 3; j++){
 			if(mahasiswa[i].total_grade > nilai_grade_angka_max){
-				nilai_grade_angka_max = mahasiswa[i].total_grade;
+				nilai_grade_angka_max = mahasiswa[i].grade.angka;
 			}
 		}
 		
@@ -347,5 +348,20 @@ int main(){
 	printf("\n\nNilai MID tertinggi : %d",nilai_mid_max);
 	printf("\n\nNilai final tertinggi : %d",nilai_final_max);
 	printf("\n\nNilai grade tertinggi : %d",nilai_grade_angka_max);
+	
+	
+	//mencari siswa yang tidak lulus
+	for(int i = 0; i < jumlah_data; i++){
+		
+		if(mahasiswa[i].grade.angka < 67){
+			tidak_lulus += 1;
+		}
+		
+	}
+	
+	printf("Jumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
+	
+	
+	
 	
 }
