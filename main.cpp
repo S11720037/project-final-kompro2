@@ -341,7 +341,7 @@ int main(){
 		
 	}
 	
-		//menampilkan nilai terendah yang telah dicari
+	//menampilkan nilai terendah yang telah dicari
 	printf("\nNilai tugas tertinggi : %d",nilai_tugas_max);
 	printf("\nNilai kuis tertinggi : %d",nilai_kuis_max);	
 	printf("\nNilai project tertinggi : %d",nilai_project_max);
@@ -366,24 +366,67 @@ int main(){
 	
 //menampilkan nilai frekuensi nilai grade
 	//sebelum ditampilkan, data harus di urutkan dahulu
+	/*
+		saat pengurutan data, semua data dalam strutc mahasiswa harus diurutkan
+		untuk mencegah terjadinya data yang tidak sinkron
+	*/
 	
 	for(int i = 0; i < jumlah_data; i++){
 			
 		for(int j = 0; j < jumlah_data; j++){
 			
-			if(mahasiswa[i].grade.angka < mahasiswa[j].grade.angka){
+			if(mahasiswa[i].grade.angka > mahasiswa[j].grade.angka){
 				
-				//mengurutkan grade mahasiswa
+				//mengurutkan nama mahasiswa
+				string temp_nama;
+				strcpy(temp_nama,mahasiswa[i].nama);
+				strcpy(mahasiswa[i].nama,mahasiswa[j].nama);
+				strcpy(mahasiswa[j].nama,temp_nama);
+				
+				//menurutkan tugas mahasiswa
+				int temp_tugas;
+				temp_tugas = mahasiswa[i].total_tugas;
+				mahasiswa[i].total_tugas = mahasiswa[j].total_tugas;
+				mahasiswa[j].total_tugas = temp_tugas;
+				
+				//mengurutkan kuis mahasiswa
+				int temp_kuis;
+				temp_kuis = mahasiswa[i].total_kuis;
+				mahasiswa[i].total_kuis = mahasiswa[j].total_kuis;
+				mahasiswa[j].total_kuis = temp_kuis;
+				
+				//mengurutkan project mahasiswa
+				int temp_project;
+				temp_project = mahasiswa[i].total_project;
+				mahasiswa[i].total_project = mahasiswa[j].total_project;
+				mahasiswa[j].total_project = temp_project;
+				
+				//mengurutkan nilai mid mahasiswa
+				int temp_mid;
+				temp_mid = mahasiswa[i].total_mid;
+				mahasiswa[i].total_mid = mahasiswa[j].total_mid;
+				mahasiswa[j].total_mid = temp_mid;
+				
+				//mengurutkan nilai final mahasiswa
+				int temp_final;
+				temp_final = mahasiswa[i].total_final;
+				mahasiswa[i].total_final = mahasiswa[j].total_final;
+				mahasiswa[j].total_final = temp_final;
+				
+				
+				//mengurutkan grade angka mahasiswa
 				int temp_angka;
 				temp_angka = mahasiswa[i].grade.angka;
 				mahasiswa[i].grade.angka = mahasiswa[j].grade.angka;
 				mahasiswa[j].grade.angka = temp_angka;
 				
-				//mengurukan grade mahasiswa
+				//mengurukan grade huruf mahasiswa
 				string temp_string;
 				strcpy(temp_string,mahasiswa[i].grade.huruf);
 				strcpy(mahasiswa[i].grade.huruf,mahasiswa[j].grade.huruf);
 				strcpy(mahasiswa[j].grade.huruf,temp_string);
+				
+				
 				
 			}
 			
@@ -428,4 +471,17 @@ int main(){
 		}
 	}
 	
+
+//menampilkan nilai grade yang telah di urutkan
+printf("\n============================================\n");
+printf("Hasil pengurutan grade\n");
+for(int i = 0; i < jumlah_data; i++){
+	
+	printf("%s = %d\n",mahasiswa[i].nama,mahasiswa[i].grade.angka);
+	
+}
+
+	
+	
+	return 0;
 }
