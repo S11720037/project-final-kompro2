@@ -51,12 +51,12 @@ struct siswa{
 	
 	string nama;
 	string nim;
-	int total_tugas;
-	int total_kuis;
-	int total_project;
-	int total_mid;
-	int total_final;
-	int total_grade_angka;
+	int total_tugas = 0;
+	int total_kuis = 0;
+	int total_project = 0;
+	int total_mid = 0;
+	int total_final = 0;
+	int total_grade_angka = 0;
 	
 	
 	struct grade_huruf_angka grade;
@@ -152,59 +152,68 @@ int main(){
 	//menghitung total data yang telah dimasukan
 	for(int i = 0; i < jumlah_data; i++){
 		
-		for(int j = 0; j < jumlah_data; j++){
+		//menghitung total data tugas mahasiswa
+		for(int j = 0; j < 3; j++){
 			
-			//menghitung total data tugas mahasiswa
-			mahasiswa[i].total_tugas = mahasiswa[i].tugas[j].nilai * 20 / 100;
+			mahasiswa[i].total_tugas += mahasiswa[i].tugas[j].nilai;
 			
-			//menghitung total kuis
-			mahasiswa[i].total_kuis = mahasiswa[i].kuis[j].nilai * 15 / 100;
-			
-			//menghitung total project
-			mahasiswa[i].total_project = (mahasiswa[i].project.nilai * 15 / 100);
-			
-			//menghitung total nilai mid
-			mahasiswa[i].total_mid = (mahasiswa[i].mid.nilai * 25 / 100);
-			
-			//menghitung nilai final
-			mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
-			
-			//menghitung total grade
-			mahasiswa[i].total_grade_angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
+		}
 		
+		//menghitung total kuis
+		for(int j = 0; j < 4; j++){
+			mahasiswa[i].total_kuis += mahasiswa[i].kuis[j].nilai;
 			
-			//menentukan grade sebagai huruf
-			if(mahasiswa[i].total_grade_angka >= 91 && mahasiswa[i].total_grade_angka <= 100){
-				strcpy(mahasiswa[i].grade.huruf,"A");
-			}
-			else if(mahasiswa[i].total_grade_angka >= 85 && mahasiswa[i].total_grade_angka <= 90){
-				strcpy(mahasiswa[i].grade.huruf,"A-");
-			}
-			else if(mahasiswa[i].total_grade_angka >= 82 && mahasiswa[i].total_grade_angka <= 84){
-				strcpy(mahasiswa[i].grade.huruf,"B+");
-			}
-			else if(mahasiswa[i].total_grade_angka >= 78 && mahasiswa[i].total_grade_angka <= 81){
-				strcpy(mahasiswa[i].grade.huruf,"B");
-			}
-			else if(mahasiswa[i].total_grade_angka >= 75 && mahasiswa[i].total_grade_angka <= 77){
-				strcpy(mahasiswa[i].grade.huruf,"B-");
-			}
-			else if(mahasiswa[i].total_grade_angka >= 70 && mahasiswa[i].total_grade_angka <= 74){
-				strcpy(mahasiswa[i].grade.huruf,"C+");
-			}
-			else if(mahasiswa[i].total_grade_angka >= 67 && mahasiswa[i].total_grade_angka <= 69){
-				strcpy(mahasiswa[i].grade.huruf,"C");
-			}
-			else if(mahasiswa[i].total_grade_angka >=60 && mahasiswa[i].total_grade_angka <= 66){
-				strcpy(mahasiswa[i].grade.huruf,"C-");
-			}
-			else if(mahasiswa[i].total_grade_angka >=40 && mahasiswa[i].total_grade_angka <=50){
-				strcpy(mahasiswa[i].grade.huruf,"D");
-			}
-			else{
-				strcpy(mahasiswa[i].grade.huruf,"XX");
-			}
-				
+		}
+		
+		//menghitung total tugas mahasiswa
+		mahasiswa[i].total_tugas = (mahasiswa[i].total_tugas / 3) * 20 / 100;
+		
+		//menghitung total kuis
+		mahasiswa[i].total_kuis = (mahasiswa[i].total_kuis / 4) * 15 / 100;
+		
+		//menghitung total project
+		mahasiswa[i].total_project = mahasiswa[i].total_project * 15 / 100;
+		
+		//menghitung total nilai mid
+		mahasiswa[i].total_mid = (mahasiswa[i].mid.nilai * 25 / 100);
+		
+		//menghitung nilai final
+		mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
+		
+		//menghitung total grade
+		mahasiswa[i].total_grade_angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
+
+		
+		//menentukan grade sebagai huruf
+		if(mahasiswa[i].total_grade_angka >= 91 && mahasiswa[i].total_grade_angka <= 100){
+			strcpy(mahasiswa[i].grade.huruf,"A");
+		}
+		else if(mahasiswa[i].total_grade_angka >= 85 && mahasiswa[i].total_grade_angka <= 90){
+			strcpy(mahasiswa[i].grade.huruf,"A-");
+		}
+		else if(mahasiswa[i].total_grade_angka >= 82 && mahasiswa[i].total_grade_angka <= 84){
+			strcpy(mahasiswa[i].grade.huruf,"B+");
+		}
+		else if(mahasiswa[i].total_grade_angka >= 78 && mahasiswa[i].total_grade_angka <= 81){
+			strcpy(mahasiswa[i].grade.huruf,"B");
+		}
+		else if(mahasiswa[i].total_grade_angka >= 75 && mahasiswa[i].total_grade_angka <= 77){
+			strcpy(mahasiswa[i].grade.huruf,"B-");
+		}
+		else if(mahasiswa[i].total_grade_angka >= 70 && mahasiswa[i].total_grade_angka <= 74){
+			strcpy(mahasiswa[i].grade.huruf,"C+");
+		}
+		else if(mahasiswa[i].total_grade_angka >= 67 && mahasiswa[i].total_grade_angka <= 69){
+			strcpy(mahasiswa[i].grade.huruf,"C");
+		}
+		else if(mahasiswa[i].total_grade_angka >=60 && mahasiswa[i].total_grade_angka <= 66){
+			strcpy(mahasiswa[i].grade.huruf,"C-");
+		}
+		else if(mahasiswa[i].total_grade_angka >=40 && mahasiswa[i].total_grade_angka <=50){
+			strcpy(mahasiswa[i].grade.huruf,"D");
+		}
+		else{
+			strcpy(mahasiswa[i].grade.huruf,"XX");
 		}
 		
 	}
