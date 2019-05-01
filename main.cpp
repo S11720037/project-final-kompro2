@@ -155,22 +155,22 @@ int main(){
 	printf("|%-8s|%-22s|%-30s|%-31s|%-10s|%-5s|%-10s|%-10s|%-10s|\n","NIM","Nama","Tugas","Kuis","Project","MID","Final","Grade","Huruf");
 	printf("|\t\ |\t\t\t|\n");
 	printf("|\t\ |\t\t\t|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\t  |%s\t|%-10s|\t      |\t\t |","Tugas1","Tugas2","Tugas3","Total 20a","Kuis1","Kuis2","Kuis3","Kuis4","Kuis15a","15a","25a","25a");
-	
+	printf("\n");
 		
 	for(int i = 0; i < jumlah_data; i++){
 		
 		//menampilkan nim dan nama mahasiswa
-		printf("\n%s\t%s",mahasiswa[i].nim,mahasiswa[i].nama);
+		printf("|%-8s|%-22s|",mahasiswa[i].nim,mahasiswa[i].nama);
 		
 		
 		//menampilkan nilai tugas
 		for(int j = 0; j < 3; j++){
 			
-			printf("\t%d",mahasiswa[i].tugas[j].nilai);
+			printf("%-6d|",mahasiswa[i].tugas[j].nilai);
 			
 			mahasiswa[i].total_tugas = mahasiswa[i].tugas[j].nilai * 20 / 100;
 		}
-		printf("\t%d",mahasiswa[i].total_tugas);	
+		printf("%-9d|",mahasiswa[i].total_tugas);	
 		
 		//menampilkan nilai kuis
 		int total_kuis;
@@ -178,23 +178,23 @@ int main(){
 			
 			mahasiswa[i].total_kuis = mahasiswa[i].kuis[j].nilai * 15 / 100;
 			
-			printf("\t%d",mahasiswa[i].kuis[j].nilai);
+			printf("%-5d|",mahasiswa[i].kuis[j].nilai);
 		}
-		printf("\t%d",mahasiswa[i].total_kuis);
+		printf("%-7d|",mahasiswa[i].total_kuis);
 		
 		//menampilkan nilai project
 		mahasiswa[i].total_project = (mahasiswa[i].project.nilai * 15 / 100);
-		printf("\t%d",mahasiswa[i].total_project);
+		printf("%-10d|",mahasiswa[i].total_project);
 	
 	
 		//menampilkan nilai mid
 		mahasiswa[i].total_mid = (mahasiswa[i].mid.nilai * 25 / 100);
-		printf("\t\t%d",mahasiswa[i].total_mid);
+		printf("%-5d|",mahasiswa[i].total_mid);
 	
 		//menampilkan nilai final dan grade
 		mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
 		mahasiswa[i].grade.angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
-		printf("\t%d\t%d",mahasiswa[i].total_final,mahasiswa[i].grade.angka);
+		printf("%-10d|%-10d|",mahasiswa[i].total_final,mahasiswa[i].grade.angka);
 	
 		//menentukan grade yang didapat
 //		int grade = total_tugas + total_kuis + total_project + total_mid + total_final;
@@ -232,7 +232,7 @@ int main(){
 			strcpy(mahasiswa[i].grade.huruf,"XX");
 		}
 		//menampilkan grade sebagai huruf
-		printf("\t%s",mahasiswa[i].grade.huruf);
+		printf("%-10s|",mahasiswa[i].grade.huruf);
 	
 		
 		printf("\n");
