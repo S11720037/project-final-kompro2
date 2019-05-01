@@ -306,12 +306,12 @@ int main(){
 	}
 	
 	//menampilkan nilai terendah yang telah dicari
-	printf("\nNilai tugas terendah : %d",nilai_tugas_min);
-	printf("\nNilai kuis terendah : %d",nilai_kuis_min);	
-	printf("\nNilai project terendah : %d",nilai_project_min);
-	printf("\nNilai MID terendah : %d",nilai_mid_min);
-	printf("\nNilai final terendah : %d",nilai_final_min);
-	printf("\nNilai grade terendah : %d",nilai_grade_angka_min);		
+	printf("\nNilai Terendah\t\t\t\t\t\t%d\t\t\t\t%d\t%d\t   %d\t  %d\t     %d",nilai_tugas_min,nilai_kuis_min,nilai_project_min,nilai_mid_min,nilai_final_min,nilai_grade_angka_min);
+//	printf("\nNilai kuis terendah : %d",nilai_kuis_min);	
+//	printf("\nNilai project terendah : %d",nilai_project_min);
+//	printf("\nNilai MID terendah : %d",nilai_mid_min);
+//	printf("\nNilai final terendah : %d",nilai_final_min);
+//	printf("\nNilai grade terendah : %d",nilai_grade_angka_min);		
 	
 	
 	//mencari nilai tertinggi
@@ -371,12 +371,14 @@ int main(){
 	}
 	
 	//menampilkan nilai terendah yang telah dicari
-	printf("\nNilai tugas tertinggi : %d",nilai_tugas_max);
-	printf("\nNilai kuis tertinggi : %d",nilai_kuis_max);	
-	printf("\nNilai project tertinggi : %d",nilai_project_max);
-	printf("\nNilai MID tertinggi : %d",nilai_mid_max);
-	printf("\nNilai final tertinggi : %d",nilai_final_max);
-	printf("\nNilai grade tertinggi : %d",nilai_grade_angka_max);
+	printf("\nNilai Tertinggi\t\t\t\t\t\t%d\t\t\t\t%d\t%d\t   %d\t  %d\t     %d",nilai_tugas_max,nilai_kuis_max,nilai_project_max,nilai_mid_max,nilai_final_max,nilai_grade_angka_max);
+//	
+//	printf("\nNilai tertinggi : %d",nilai_tugas_max);
+//	printf("\nNilai kuis tertinggi : %d",nilai_kuis_max);	
+//	printf("\nNilai project tertinggi : %d",nilai_project_max);
+//	printf("\nNilai MID tertinggi : %d",nilai_mid_max);
+//	printf("\nNilai final tertinggi : %d",nilai_final_max);
+//	printf("\nNilai grade tertinggi : %d",nilai_grade_angka_max);
 	
 	
 	//mencari siswa yang tidak lulus
@@ -388,7 +390,7 @@ int main(){
 		
 	}
 	
-	printf("\nJumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
+	printf("\n\nJumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
 	
 	printf("\n");
 	
@@ -471,6 +473,7 @@ int main(){
 //	}
 	
 	//menampilkan hasil pengurutan sebagai frekuensi
+	printf("\nFrekuensi kemunculan :\n");
 	for(int i = 0; i < jumlah_data; i++){
 		
 		int counter = 0;
@@ -502,8 +505,7 @@ int main(){
 	
 
 //menampilkan nilai grade yang telah di urutkan
-printf("\n============================================\n");
-printf("Hasil pengurutan grade\n");
+printf("\n\nHasil pengurutan grade:\n");
 for(int i = 0; i < jumlah_data; i++){
 	
 	printf("%s = %d\n",mahasiswa[i].nama,mahasiswa[i].grade.angka);
