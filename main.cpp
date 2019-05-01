@@ -69,8 +69,8 @@ struct siswa{
 
 int main(){
 	
-	int jumlah_data = 1;
-	int tidak_lulus = 0;
+	int jumlah_data;
+	int tidak_lulus;
 	
 	int nilai_tugas_min,nilai_tugas_max;
 	int nilai_kuis_min,nilai_kuis_max;	
@@ -210,8 +210,8 @@ int main(){
 	}
 	
 	
-	//mencari nilai terendah dan tertinggi
 	
+	//mencari nilai terendah dan tertinggi	
 	nilai_tugas_min = mahasiswa[0].total_tugas;
 	nilai_kuis_min = mahasiswa[0].total_kuis;
 	nilai_project_min = mahasiswa[0].total_project;
@@ -294,109 +294,26 @@ int main(){
 		
 	}
 	
-	
-	
-	
-	//menampilkan data dalam tabel
-	printf("+--------+----------------------+------------------------------+-------------------------------+----------+-----+----------+----------+----------+\n");
-	printf("|%-8s|%-22s|%-30s|%-31s|%-10s|%-5s|%-10s|%-10s|%-10s|\n","NIM","Nama","Tugas","Kuis","Project","MID","Final","Grade","Huruf");
-	printf("+--------+----------------------+------------------------------+-------------------------------+----------+-----+----------+----------+----------+\n");
-	printf("|%9s%23s%31s%32s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|");
-	printf("\n");
-	printf("|\t\ |\t\t\t|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\t  |%s\t|%-10s|\t      |\t\t |","Tugas1","Tugas2","Tugas3","Total 20%","Kuis1","Kuis2","Kuis3","Kuis4","Kuis15%","15%","25%","25%");
-	printf("\n");
-	printf("+--------+----------------------+------+------+------+---------+-----+-----+-----+-----+-------+----------+-----+----------+----------+----------+\n");
-	printf("%s%9s%23s%7s%7s%7s%10s%6s%6s%6s%6s%8s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|");
-	printf("\n");
-		
-	for(int i = 0; i < jumlah_data; i++){
-		
-		//menampilkan nim dan nama mahasiswa
-		printf("|%-8s|%-22s|",mahasiswa[i].nim,mahasiswa[i].nama);
-		
-		
-		//menampilkan nilai tugas
-		for(int j = 0; j < 3; j++){
-			
-			printf("%-6d|",mahasiswa[i].tugas[j].nilai);	
-			
-		}
-		printf("%-9d|",mahasiswa[i].total_tugas);	
-		
-		//menampilkan nilai kuis
-		for(int j = 0; j < 4; j++){
-			
-			printf("%-5d|",mahasiswa[i].kuis[j].nilai);
-		}
-		printf("%-7d|",mahasiswa[i].total_kuis);
-		
-		//menampilkan nilai project
-		printf("%-10d|",mahasiswa[i].total_project);
-	
-	
-		//menampilkan nilai mid
-		printf("%-5d|",mahasiswa[i].total_mid);
-	
-		//menampilkan nilai final dan grade
-		printf("%-10d|%-10d|",mahasiswa[i].total_final,mahasiswa[i].total_grade_angka);
-	
-
-	
-		//menampilkan grade sebagai huruf
-		printf("%-10s|",mahasiswa[i].grade.huruf);
-	
-		
-		printf("\n");
-		
-	printf("%s%9s%23s%7s%7s%7s%10s%6s%6s%6s%6s%8s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|");
-	printf("\n");
-	printf("+--------+----------------------+------+------+------+---------+-----+-----+-----+-----+-------+----------+-----+----------+----------+----------+\n");
-
-		
-		
-	}
-	
-
-	
-
-	
-	//menampilkan nilai terendah yang telah dicari
-	printf("\nNilai Terendah\t\t\t\t\t\t%d\t\t\t\t%d\t%d\t   %d\t  %d\t     %d",nilai_tugas_min,nilai_kuis_min,nilai_project_min,nilai_mid_min,nilai_final_min,nilai_grade_angka_min);		
-	
-
-
-	
-	//menampilkan nilai terendah yang telah dicari
-	printf("\nNilai Tertinggi\t\t\t\t\t\t%d\t\t\t\t%d\t%d\t   %d\t  %d\t     %d",nilai_tugas_max,nilai_kuis_max,nilai_project_max,nilai_mid_max,nilai_final_max,nilai_grade_angka_max);
-
-	
-	
 	//mencari siswa yang tidak lulus
 	for(int i = 0; i < jumlah_data; i++){
 		
-		if(mahasiswa[i].grade.angka < 67){
+		if(mahasiswa[i].total_grade_angka < 67){
 			tidak_lulus += 1;
 		}
 		
 	}
 	
-	printf("\n\nJumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
 	
-	printf("\n");
-	
-	
-//menampilkan nilai frekuensi nilai grade
-	//sebelum ditampilkan, data harus di urutkan dahulu
+	//mengurutkan data yang dimiliki mahasiswa
 	/*
 		saat pengurutan data, semua data dalam strutc mahasiswa harus diurutkan
 		untuk mencegah terjadinya data yang tidak sinkron
 	*/
-	
 	for(int i = 0; i < jumlah_data; i++){
 			
 		for(int j = 0; j < jumlah_data; j++){
 			
-			if(mahasiswa[i].grade.angka > mahasiswa[j].grade.angka){
+			if(mahasiswa[i].total_grade_angka < mahasiswa[j].total_grade_angka){
 				
 				//mengurutkan nama mahasiswa
 				string temp_nama;
@@ -437,9 +354,9 @@ int main(){
 				
 				//mengurutkan grade angka mahasiswa
 				int temp_angka;
-				temp_angka = mahasiswa[i].grade.angka;
-				mahasiswa[i].grade.angka = mahasiswa[j].grade.angka;
-				mahasiswa[j].grade.angka = temp_angka;
+				temp_angka = mahasiswa[i].total_grade_angka;
+				mahasiswa[i].total_grade_angka = mahasiswa[j].total_grade_angka;
+				mahasiswa[j].total_grade_angka = temp_angka;
 				
 				//mengurukan grade huruf mahasiswa
 				string temp_string;
@@ -447,20 +364,81 @@ int main(){
 				strcpy(mahasiswa[i].grade.huruf,mahasiswa[j].grade.huruf);
 				strcpy(mahasiswa[j].grade.huruf,temp_string);
 				
-				
-				
 			}
 			
 		}
 		
-	}	
+	}
 	
-	//hasil pengurutan
-//	for(int i = 0; i < jumlah_data; i++){
-//		
-//		printf("Hasil pengurutan : %s\n",mahasiswa[i].grade.huruf);
-//		
-//	}
+	
+	
+	//menampilkan data dalam tabel
+	printf("+--------+----------------------+------------------------------+-------------------------------+----------+-----+----------+----------+----------+\n");
+	printf("|%-8s|%-22s|%-30s|%-31s|%-10s|%-5s|%-10s|%-10s|%-10s|\n","NIM","Nama","Tugas","Kuis","Project","MID","Final","Grade","Huruf");
+	printf("+--------+----------------------+------------------------------+-------------------------------+----------+-----+----------+----------+----------+\n");
+	printf("|%9s%23s%31s%32s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|");
+	printf("\n");
+	printf("|\t\ |\t\t\t|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\t  |%s\t|%-10s|\t      |\t\t |","Tugas1","Tugas2","Tugas3","Total 20%","Kuis1","Kuis2","Kuis3","Kuis4","Kuis15%","15%","25%","25%");
+	printf("\n");
+	printf("+--------+----------------------+------+------+------+---------+-----+-----+-----+-----+-------+----------+-----+----------+----------+----------+\n");
+	printf("%s%9s%23s%7s%7s%7s%10s%6s%6s%6s%6s%8s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|");
+	printf("\n");
+		
+	for(int i = 0; i < jumlah_data; i++){
+		
+		//menampilkan nim dan nama mahasiswa
+		printf("|%-8s|%-22s|",mahasiswa[i].nim,mahasiswa[i].nama);
+		
+		
+		//menampilkan nilai tugas
+		for(int j = 0; j < 3; j++){
+			
+			printf("%-6d|",mahasiswa[i].tugas[j].nilai);	
+			
+		}
+		printf("%-9d|",mahasiswa[i].total_tugas);	
+		
+		//menampilkan nilai kuis
+		for(int j = 0; j < 4; j++){
+			
+			printf("%-5d|",mahasiswa[i].kuis[j].nilai);
+		}
+		printf("%-7d|",mahasiswa[i].total_kuis);
+		
+		//menampilkan nilai project
+		printf("%-10d|",mahasiswa[i].total_project);
+	
+		//menampilkan nilai mid
+		printf("%-5d|",mahasiswa[i].total_mid);
+	
+		//menampilkan nilai final dan grade
+		printf("%-10d|%-10d|",mahasiswa[i].total_final,mahasiswa[i].total_grade_angka);
+	
+		//menampilkan grade sebagai huruf
+		printf("%-10s|",mahasiswa[i].grade.huruf);
+		
+		printf("\n");
+		
+	printf("%s%9s%23s%7s%7s%7s%10s%6s%6s%6s%6s%8s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|");
+	printf("\n");
+	printf("+--------+----------------------+------+------+------+---------+-----+-----+-----+-----+-------+----------+-----+----------+----------+----------+\n");		
+		
+	}
+	
+
+	//menampilkan nilai terendah yang telah dicari
+	printf("\nNilai Terendah\t\t\t\t\t\t%d\t\t\t\t%d\t%d\t   %d\t  %d\t     %d",nilai_tugas_min,nilai_kuis_min,nilai_project_min,nilai_mid_min,nilai_final_min,nilai_grade_angka_min);	
+	
+	//menampilkan nilai terendah yang telah dicari
+	printf("\nNilai Tertinggi\t\t\t\t\t\t%d\t\t\t\t%d\t%d\t   %d\t  %d\t     %d",nilai_tugas_max,nilai_kuis_max,nilai_project_max,nilai_mid_max,nilai_final_max,nilai_grade_angka_max);
+
+	
+	//menampilkan mahasiswa yang tidak lulus
+	printf("\n\nJumlah mahasiswa yang tidak lulus = %d",tidak_lulus);
+	
+	printf("\n");
+		
+	
 	
 	//menampilkan hasil pengurutan sebagai frekuensi
 	printf("\nFrekuensi kemunculan :\n");
@@ -494,13 +472,13 @@ int main(){
 	}
 	
 
-//menampilkan nilai grade yang telah di urutkan
-printf("\n\nHasil pengurutan grade:\n");
-for(int i = 0; i < jumlah_data; i++){
-	
-	printf("%s = %d\n",mahasiswa[i].nama,mahasiswa[i].grade.angka);
-	
-}
+	//menampilkan nilai grade yang telah di urutkan
+	printf("\n\nHasil pengurutan grade:\n");
+	for(int i = 0; i < jumlah_data; i++){
+		
+		printf("%s = %d\n",mahasiswa[i].nama,mahasiswa[i].total_grade_angka);
+		
+	}
 
 	
 	
