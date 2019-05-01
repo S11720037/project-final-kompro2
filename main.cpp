@@ -68,7 +68,7 @@ struct siswa{
 
 int main(){
 	
-	int jumlah_data;
+	int jumlah_data = 1;
 	int tidak_lulus = 0;
 	
 	int nilai_tugas_min,nilai_tugas_max;
@@ -79,83 +79,86 @@ int main(){
 	int nilai_grade_angka_min,nilai_grade_angka_max;
 	
 	
-	printf("Input jumlah data yang akan dimasukan : ");
-	scanf("%d",&jumlah_data);
+//	printf("Input jumlah data yang akan dimasukan : ");
+//	scanf("%d",&jumlah_data);
 
 	struct siswa mahasiswa[jumlah_data];
 	
 	//memasukan data
-	for(int i = 0; i < jumlah_data; i++){
-		
-		//membersihkan buffer
-		fflush(stdin);
-//		while(getchar() != '\n');
-		
-		printf("Masukan data ke-%d\n\n",i+1);
-		
-		printf("Masukan nama : ");
-		gets(mahasiswa[i].nama);
-		
-		printf("Masukan NIM : ");
-		gets(mahasiswa[i].nim);
-		
-//		memasukan nilai tugas
-		printf("\nTugas\n");
-		for(int j = 0; j < 3; j++){
-		
-			printf("Masukan nilai ke-%d : ",j+1);
-			scanf("%d",&mahasiswa[i].tugas[j].nilai);
-		}	
-		
-		//memasukan nilai kuis
-		printf("\nKuis\n");
-		for(int j = 0; j < 4; j++){
-		
-		printf("Masukan nilai ke-%d : ",j+1);
-		scanf("%d",&mahasiswa[i].kuis[j].nilai);
-		}
-		
-		//masukan nilai project
-		printf("\nProject\n");
-		printf("Masukan nilai : ");
-		scanf("%d",&mahasiswa[i].project.nilai);
-		
-		
-		//memasukan nilai mid
-		printf("\nMID\n");
-		printf("Masukan nilai : ");
-		scanf("%d",&mahasiswa[i].mid.nilai);
-		
-		//memasukan nilai final
-		printf("\nFinal\n");
-		printf("Masukan nilai : ");
-		scanf("%d",&mahasiswa[i].final.nilai);
-		
-	}
-	
-	//menampilkan data yang telah dimasukan
-//	printf("=================================================================================================================================================================\n");
-//	printf("=\t\t=\t\t=\t\t\t\t=\t\t\t\t\t=\t      =\t\t=\t    =\n");
-//	printf("= NIM\t\t= Nama\t\t= Tugas 20a\t\t\t= Kuis 10a\t\t\t\t= Project 15a = MID 25a = Final 25a = Grade = Huruf =\n");
-//	printf("\t\t=\t\t=\t\t\t\t=\t\t\t\t\t=\t\t=\t  =\t=\t=\t=\n");
-//	printf("=================================================================================================================================================================\n");	
-//	printf("=\t\t=\t=\t=\t=\t=\t=\t=\t=\t=\t=\t\t=\t\t=\t\t=\t\t=\n");
-//	printf("=\t\t= I\t= II\t= III\t= 20a\t= I\t= II\t= III\t= IV\t= 10a\t= 15a\t\t= 25a\t\t= 25a\t\t=\t\t=\n");
-//	printf("=\t\t=\t=\t=\t=\t=\t=\t=\t=\t=\t=\t\t=\t\t=\t\t=\t\t=\n");
-//	printf("=================================================================================================================================================================\n");	
-//	printf("=\t=\t=\t=\t=\t=\t=\t=\t=\t=\t=\t=\t\t=\t\t=\t\t=\t\t=\n");
+//	for(int i = 0; i < jumlah_data; i++){
+//		
+//		//membersihkan buffer
+//		fflush(stdin);
+////		while(getchar() != '\n');
+//		
+//		printf("Masukan data ke-%d\n\n",i+1);
+//		
+//		printf("Masukan nama : ");
+//		gets(mahasiswa[i].nama);
+//		
+//		printf("Masukan NIM : ");
+//		gets(mahasiswa[i].nim);
+//		
+////		memasukan nilai tugas
+//		printf("\nTugas\n");
+//		for(int j = 0; j < 3; j++){
+//		
+//			printf("Masukan nilai ke-%d : ",j+1);
+//			scanf("%d",&mahasiswa[i].tugas[j].nilai);
+//		}	
+//		
+//		//memasukan nilai kuis
+//		printf("\nKuis\n");
+//		for(int j = 0; j < 4; j++){
+//		
+//		printf("Masukan nilai ke-%d : ",j+1);
+//		scanf("%d",&mahasiswa[i].kuis[j].nilai);
+//		}
+//		
+//		//masukan nilai project
+//		printf("\nProject\n");
+//		printf("Masukan nilai : ");
+//		scanf("%d",&mahasiswa[i].project.nilai);
+//		
+//		
+//		//memasukan nilai mid
+//		printf("\nMID\n");
+//		printf("Masukan nilai : ");
+//		scanf("%d",&mahasiswa[i].mid.nilai);
+//		
+//		//memasukan nilai final
+//		printf("\nFinal\n");
+//		printf("Masukan nilai : ");
+//		scanf("%d",&mahasiswa[i].final.nilai);
+//		
+//	}
 
-//	printf("==================================================================================================================================================================\n");
+	//test isi data
+	strcpy(mahasiswa[0].nama,"arter tendean");
+	strcpy(mahasiswa[0].nim,"1234567");
+	mahasiswa[0].tugas[0].nilai = 100;
+	mahasiswa[0].tugas[1].nilai = 100;
+	mahasiswa[0].tugas[2].nilai = 100;
+	mahasiswa[0].kuis[0].nilai = 100;
+	mahasiswa[0].kuis[1].nilai = 100;
+	mahasiswa[0].kuis[2].nilai = 100;
+	mahasiswa[0].kuis[3].nilai = 100;
+	mahasiswa[0].mid.nilai = 100;
+	mahasiswa[0].project.nilai = 100;
+	mahasiswa[0].final.nilai = 100;
 //	
-//	printf("NIM\tNama\t\tTugas\t\t\t\tKuis\t\t\t\t\tProject\tMID\tFinal\tGrade\tHUruf\n");
-//	printf("==================================================================================================================================================================\n");
-//	printf("\t\t\t1\t2\t3\t20a\t1\t2\t3\t4\t15a\t15a\t25a\t25a\t\n");
-
+	
+	
+	//menampilkan data dalam tabel
 	printf("+--------+----------------------+------------------------------+-------------------------------+----------+-----+----------+----------+----------+\n");
 	printf("|%-8s|%-22s|%-30s|%-31s|%-10s|%-5s|%-10s|%-10s|%-10s|\n","NIM","Nama","Tugas","Kuis","Project","MID","Final","Grade","Huruf");
 	printf("+--------+----------------------+------------------------------+-------------------------------+----------+-----+----------+----------+----------+\n");
-	printf("|\t\ |\t\t\t|\n");
-	printf("|\t\ |\t\t\t|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\t  |%s\t|%-10s|\t      |\t\t |","Tugas1","Tugas2","Tugas3","Total 20a","Kuis1","Kuis2","Kuis3","Kuis4","Kuis15a","15a","25a","25a");
+	printf("|%9s%23s%31s%32s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|");
+	printf("\n");
+	printf("|\t\ |\t\t\t|%s|%s|%s|%s|%s|%s|%s|%s|%s|%s\t  |%s\t|%-10s|\t      |\t\t |","Tugas1","Tugas2","Tugas3","Total 20%","Kuis1","Kuis2","Kuis3","Kuis4","Kuis15%","15%","25%","25%");
+	printf("\n");
+	printf("+--------+----------------------+------+------+------+---------+-----+-----+-----+-----+-------+----------+-----+----------+----------+----------+\n");
+	printf("%s%9s%23s%7s%7s%7s%10s%6s%6s%6s%6s%8s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|");
 	printf("\n");
 		
 	for(int i = 0; i < jumlah_data; i++){
@@ -237,6 +240,11 @@ int main(){
 	
 		
 		printf("\n");
+		
+	printf("%s%9s%23s%7s%7s%7s%10s%6s%6s%6s%6s%8s%11s%6s%11s%11s%11s","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|","|");
+	printf("\n");
+	printf("+--------+----------------------+------+------+------+---------+-----+-----+-----+-----+-------+----------+-----+----------+----------+----------+\n");
+
 		
 		
 	}
