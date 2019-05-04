@@ -1,3 +1,5 @@
+//program final project compro2
+
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -52,6 +54,7 @@ struct siswa{
 	
 	string nama;
 	string nim;
+	
 	int total_tugas = 0;
 	int total_kuis = 0;
 	int total_project = 0;
@@ -76,6 +79,7 @@ int main(){
 	int tidak_lulus = 0;
 	int data_masuk = 1;
 	
+	//untuk menyimpan nilai minimum dan maksimum mahasiswa
 	int nilai_tugas_min,nilai_tugas_max;
 	int nilai_kuis_min,nilai_kuis_max;	
 	int nilai_project_min,nilai_project_max;
@@ -88,25 +92,7 @@ int main(){
 	do
 	{
 		
-	
-		//test isi data
-	//	strcpy(mahasiswa[0].nama,"arter tendean");
-	//	strcpy(mahasiswa[0].nim,"1234567");
-	//	mahasiswa[0].tugas[0].nilai = 100;
-	//	mahasiswa[0].tugas[1].nilai = 100;
-	//	mahasiswa[0].tugas[2].nilai = 100;
-	//	mahasiswa[0].kuis[0].nilai = 100;
-	//	mahasiswa[0].kuis[1].nilai = 100;
-	//	mahasiswa[0].kuis[2].nilai = 100;
-	//	mahasiswa[0].kuis[3].nilai = 100;
-	//	mahasiswa[0].mid.nilai = 100;
-	//	mahasiswa[0].project.nilai = 100;
-	//	mahasiswa[0].final.nilai = 100;
-	//	
-		
-		
 		//membuat menu pilihan untuk user menggunakan switch
-//		system("cls");
 		printf("\nPilihan Menu : \n");
 		printf("[0] Untuk keluar\n");
 		printf("[1] Memasukan data\n");
@@ -124,6 +110,8 @@ int main(){
 				//
 				data_masuk = 2;
 				system("cls");
+				
+				//user input jumlah data yang akan diproses
 				printf("Input jumlah data yang akan dimasukan : ");
 				scanf("%d",&jumlah_data);
 			
@@ -136,7 +124,7 @@ int main(){
 					
 					//membersihkan buffer
 					fflush(stdin);
-			//		while(getchar() != '\n');
+					//buffer? baca ini: https://www.belajarcpp.com/tips-dan-trik/flush-buffer/
 					
 					printf("Masukan data ke-%d\n\n",i+1);
 					
@@ -248,10 +236,11 @@ int main(){
 					}
 					
 				}
-				
 					
 					
 				//mencari nilai terendah dan tertinggi	
+				
+				//inisialisasi untuk nilai minimum
 				nilai_tugas_min = mahasiswa[0].total_tugas;
 				nilai_kuis_min = mahasiswa[0].total_kuis;
 				nilai_project_min = mahasiswa[0].total_project;
@@ -259,6 +248,7 @@ int main(){
 				nilai_final_min = mahasiswa[0].total_final;
 				nilai_grade_angka_min = mahasiswa[0].total_grade_angka;
 				
+				//inisialisasi untuk nilai maksimum
 				nilai_tugas_max = mahasiswa[0].total_tugas;
 				nilai_kuis_max = mahasiswa[0].total_kuis;
 				nilai_project_max = mahasiswa[0].total_project;
@@ -442,7 +432,7 @@ int main(){
 				printf("%s\t\t%s\n","70-74","C+");
 				printf("%s\t\t%s\n","67-69","C");
 				printf("%s\t\t%s\n","60-66","C-");
-				printf("%s\t\t%s\n","40-59","D");
+				printf("%s\t\t%s\n","40-59","-");
 				//
 			break;
 			
@@ -602,19 +592,6 @@ int main(){
 		}
 	
 }while(pilihan_user != 777);
-	
-	
-	
-
-
-		
-	
-	
-	
-	
-
-
-
 	
 	
 	return 0;
