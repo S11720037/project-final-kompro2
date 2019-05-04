@@ -180,227 +180,249 @@ int main(){
 					
 				}
 				
-					//menghitung total data yang telah dimasukan
-					for(int i = 0; i < jumlah_data; i++){
+				//menghitung total data yang telah dimasukan
+				for(int i = 0; i < jumlah_data; i++){
+					
+					//menghitung total data tugas mahasiswa
+					for(int j = 0; j < 3; j++){
 						
-						//menghitung total data tugas mahasiswa
-						for(int j = 0; j < 3; j++){
-							
-							mahasiswa[i].total_tugas += mahasiswa[i].tugas[j].nilai;
-							
-						}
+						mahasiswa[i].total_tugas += mahasiswa[i].tugas[j].nilai;
 						
-						//menghitung total kuis
-						for(int j = 0; j < 4; j++){
-							mahasiswa[i].total_kuis += mahasiswa[i].kuis[j].nilai;
-							
-						}
+					}
+					
+					//menghitung total kuis
+					for(int j = 0; j < 4; j++){
+						mahasiswa[i].total_kuis += mahasiswa[i].kuis[j].nilai;
 						
-						//menghitung total tugas mahasiswa
-						mahasiswa[i].total_tugas = (mahasiswa[i].total_tugas / 3) * 20 / 100;
-						
-						//menghitung total kuis
-						mahasiswa[i].total_kuis = (mahasiswa[i].total_kuis / 4) * 15 / 100;
-						
-						//menghitung total project
-						mahasiswa[i].total_project = mahasiswa[i].project.nilai * 15 / 100;
-						
-						//menghitung total nilai mid
-						mahasiswa[i].total_mid = (mahasiswa[i].mid.nilai * 25 / 100);
-						
-						//menghitung nilai final
-						mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
-						
-						//menghitung total grade
-						mahasiswa[i].total_grade_angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
+					}
+					
+					//menghitung total tugas mahasiswa
+					mahasiswa[i].total_tugas = (mahasiswa[i].total_tugas / 3) * 20 / 100;
+					
+					//menghitung total kuis
+					mahasiswa[i].total_kuis = (mahasiswa[i].total_kuis / 4) * 15 / 100;
+					
+					//menghitung total project
+					mahasiswa[i].total_project = mahasiswa[i].project.nilai * 15 / 100;
+					
+					//menghitung total nilai mid
+					mahasiswa[i].total_mid = (mahasiswa[i].mid.nilai * 25 / 100);
+					
+					//menghitung nilai final
+					mahasiswa[i].total_final = (mahasiswa[i].final.nilai * 25 / 100);
+					
+					//menghitung total grade
+					mahasiswa[i].total_grade_angka = mahasiswa[i].total_tugas + mahasiswa[i].total_kuis + mahasiswa[i].total_project + mahasiswa[i].total_mid + mahasiswa[i].total_final;
+			
+					
+					//menentukan grade sebagai huruf
+					if(mahasiswa[i].total_grade_angka >= 91 && mahasiswa[i].total_grade_angka <= 100){
+						strcpy(mahasiswa[i].grade.huruf,"A");
+					}
+					else if(mahasiswa[i].total_grade_angka >= 85 && mahasiswa[i].total_grade_angka <= 90){
+						strcpy(mahasiswa[i].grade.huruf,"A-");
+					}
+					else if(mahasiswa[i].total_grade_angka >= 82 && mahasiswa[i].total_grade_angka <= 84){
+						strcpy(mahasiswa[i].grade.huruf,"B+");
+					}
+					else if(mahasiswa[i].total_grade_angka >= 78 && mahasiswa[i].total_grade_angka <= 81){
+						strcpy(mahasiswa[i].grade.huruf,"B");
+					}
+					else if(mahasiswa[i].total_grade_angka >= 75 && mahasiswa[i].total_grade_angka <= 77){
+						strcpy(mahasiswa[i].grade.huruf,"B-");
+					}
+					else if(mahasiswa[i].total_grade_angka >= 70 && mahasiswa[i].total_grade_angka <= 74){
+						strcpy(mahasiswa[i].grade.huruf,"C+");
+					}
+					else if(mahasiswa[i].total_grade_angka >= 67 && mahasiswa[i].total_grade_angka <= 69){
+						strcpy(mahasiswa[i].grade.huruf,"C");
+					}
+					else if(mahasiswa[i].total_grade_angka >=60 && mahasiswa[i].total_grade_angka <= 66){
+						strcpy(mahasiswa[i].grade.huruf,"C-");
+					}
+					else if(mahasiswa[i].total_grade_angka >=40 && mahasiswa[i].total_grade_angka <=50){
+						strcpy(mahasiswa[i].grade.huruf,"D");
+					}
+					else{
+						strcpy(mahasiswa[i].grade.huruf,"XX");
+					}
+					
+				}
 				
-						
-						//menentukan grade sebagai huruf
-						if(mahasiswa[i].total_grade_angka >= 91 && mahasiswa[i].total_grade_angka <= 100){
-							strcpy(mahasiswa[i].grade.huruf,"A");
-						}
-						else if(mahasiswa[i].total_grade_angka >= 85 && mahasiswa[i].total_grade_angka <= 90){
-							strcpy(mahasiswa[i].grade.huruf,"A-");
-						}
-						else if(mahasiswa[i].total_grade_angka >= 82 && mahasiswa[i].total_grade_angka <= 84){
-							strcpy(mahasiswa[i].grade.huruf,"B+");
-						}
-						else if(mahasiswa[i].total_grade_angka >= 78 && mahasiswa[i].total_grade_angka <= 81){
-							strcpy(mahasiswa[i].grade.huruf,"B");
-						}
-						else if(mahasiswa[i].total_grade_angka >= 75 && mahasiswa[i].total_grade_angka <= 77){
-							strcpy(mahasiswa[i].grade.huruf,"B-");
-						}
-						else if(mahasiswa[i].total_grade_angka >= 70 && mahasiswa[i].total_grade_angka <= 74){
-							strcpy(mahasiswa[i].grade.huruf,"C+");
-						}
-						else if(mahasiswa[i].total_grade_angka >= 67 && mahasiswa[i].total_grade_angka <= 69){
-							strcpy(mahasiswa[i].grade.huruf,"C");
-						}
-						else if(mahasiswa[i].total_grade_angka >=60 && mahasiswa[i].total_grade_angka <= 66){
-							strcpy(mahasiswa[i].grade.huruf,"C-");
-						}
-						else if(mahasiswa[i].total_grade_angka >=40 && mahasiswa[i].total_grade_angka <=50){
-							strcpy(mahasiswa[i].grade.huruf,"D");
-						}
-						else{
-							strcpy(mahasiswa[i].grade.huruf,"XX");
-						}
-						
+					
+					
+				//mencari nilai terendah dan tertinggi	
+				nilai_tugas_min = mahasiswa[0].total_tugas;
+				nilai_kuis_min = mahasiswa[0].total_kuis;
+				nilai_project_min = mahasiswa[0].total_project;
+				nilai_mid_min = mahasiswa[0].total_mid;
+				nilai_final_min = mahasiswa[0].total_final;
+				nilai_grade_angka_min = mahasiswa[0].total_grade_angka;
+				
+				nilai_tugas_max = mahasiswa[0].total_tugas;
+				nilai_kuis_max = mahasiswa[0].total_kuis;
+				nilai_project_max = mahasiswa[0].total_project;
+				nilai_mid_max = mahasiswa[0].total_mid;
+				nilai_final_max = mahasiswa[0].total_final;
+				nilai_grade_angka_max = mahasiswa[0].total_grade_angka;
+				
+				for(int i = 0; i < jumlah_data; i++){
+					
+					//mencari nilai terendah
+					
+					//mencari nilai tugas terendah
+					if(mahasiswa[i].total_tugas < nilai_tugas_min){
+						nilai_tugas_min = mahasiswa[i].total_tugas;
 					}
 					
-					
-					
-					//mencari nilai terendah dan tertinggi	
-					nilai_tugas_min = mahasiswa[0].total_tugas;
-					nilai_kuis_min = mahasiswa[0].total_kuis;
-					nilai_project_min = mahasiswa[0].total_project;
-					nilai_mid_min = mahasiswa[0].total_mid;
-					nilai_final_min = mahasiswa[0].total_final;
-					nilai_grade_angka_min = mahasiswa[0].total_grade_angka;
-					
-					nilai_tugas_max = mahasiswa[0].total_tugas;
-					nilai_kuis_max = mahasiswa[0].total_kuis;
-					nilai_project_max = mahasiswa[0].total_project;
-					nilai_mid_max = mahasiswa[0].total_mid;
-					nilai_final_max = mahasiswa[0].total_final;
-					nilai_grade_angka_max = mahasiswa[0].total_grade_angka;
-					
-					for(int i = 0; i < jumlah_data; i++){
-						
-						//mencari nilai terendah
-						
-						//mencari nilai tugas terendah
-						if(mahasiswa[i].total_tugas < nilai_tugas_min){
-							nilai_tugas_min = mahasiswa[i].total_tugas;
-						}
-						
-						//mencari nilai kuis terendah
-						if(mahasiswa[i].total_kuis < nilai_kuis_min){
-							nilai_kuis_min = mahasiswa[i].total_kuis;
-						}
-						
-						//mencari nilai project terendah
-						if(mahasiswa[i].total_project < nilai_project_min){
-							nilai_project_min = mahasiswa[i].total_project;
-						}
-						
-						//mencari nilai mid terendah
-						if(mahasiswa[i].total_mid < nilai_mid_min){
-							nilai_mid_min = mahasiswa[i].total_mid;
-						}
-						
-						//mencari nilai final terendah
-						if(mahasiswa[i].total_final < nilai_final_min){
-							nilai_final_min = mahasiswa[i].total_final;
-						}
-						
-						//mencari nilai grade terendah
-						if(mahasiswa[i].total_grade_angka < nilai_grade_angka_min){
-							nilai_grade_angka_min = mahasiswa[i].total_grade_angka;
-						}
-						
-						//mencari nilai tertinggi
-						
-						//mencari nilai tugas tertinggi
-						if(mahasiswa[i].total_tugas > nilai_tugas_max){
-							nilai_tugas_max = mahasiswa[i].total_tugas;
-						}
-						
-						//mencari nilai kuis tertinggi
-						if(mahasiswa[i].total_kuis > nilai_kuis_max){
-							nilai_kuis_max = mahasiswa[i].total_kuis;
-						}
-						
-						//mencari nilai project tertinggi
-						if(mahasiswa[i].total_project > nilai_project_max){
-							nilai_project_max = mahasiswa[i].total_project;
-						}
-						
-						//mencari nilai mid tertinggi
-						if(mahasiswa[i].total_mid > nilai_mid_max){
-							nilai_mid_max = mahasiswa[i].total_mid;
-						}
-						
-						//mencari nilai final tertinggi
-						if(mahasiswa[i].total_final > nilai_final_max){
-							nilai_final_max = mahasiswa[i].total_final;
-						}
-						
-						//mencari nilai grade tertinggi
-						if(mahasiswa[i].total_grade_angka > nilai_grade_angka_max){
-							nilai_grade_angka_max = mahasiswa[i].total_grade_angka;
-						}
-						
+					//mencari nilai kuis terendah
+					if(mahasiswa[i].total_kuis < nilai_kuis_min){
+						nilai_kuis_min = mahasiswa[i].total_kuis;
 					}
 					
+					//mencari nilai project terendah
+					if(mahasiswa[i].total_project < nilai_project_min){
+						nilai_project_min = mahasiswa[i].total_project;
+					}
+					
+					//mencari nilai mid terendah
+					if(mahasiswa[i].total_mid < nilai_mid_min){
+						nilai_mid_min = mahasiswa[i].total_mid;
+					}
+					
+					//mencari nilai final terendah
+					if(mahasiswa[i].total_final < nilai_final_min){
+						nilai_final_min = mahasiswa[i].total_final;
+					}
+					
+					//mencari nilai grade terendah
+					if(mahasiswa[i].total_grade_angka < nilai_grade_angka_min){
+						nilai_grade_angka_min = mahasiswa[i].total_grade_angka;
+					}
+					
+					//mencari nilai tertinggi
+					
+					//mencari nilai tugas tertinggi
+					if(mahasiswa[i].total_tugas > nilai_tugas_max){
+						nilai_tugas_max = mahasiswa[i].total_tugas;
+					}
+					
+					//mencari nilai kuis tertinggi
+					if(mahasiswa[i].total_kuis > nilai_kuis_max){
+						nilai_kuis_max = mahasiswa[i].total_kuis;
+					}
+					
+					//mencari nilai project tertinggi
+					if(mahasiswa[i].total_project > nilai_project_max){
+						nilai_project_max = mahasiswa[i].total_project;
+					}
+					
+					//mencari nilai mid tertinggi
+					if(mahasiswa[i].total_mid > nilai_mid_max){
+						nilai_mid_max = mahasiswa[i].total_mid;
+					}
+					
+					//mencari nilai final tertinggi
+					if(mahasiswa[i].total_final > nilai_final_max){
+						nilai_final_max = mahasiswa[i].total_final;
+					}
+					
+					//mencari nilai grade tertinggi
+					if(mahasiswa[i].total_grade_angka > nilai_grade_angka_max){
+						nilai_grade_angka_max = mahasiswa[i].total_grade_angka;
+					}
+					
+				}
 					
 					
-					//mengurutkan data yang dimiliki mahasiswa
-					/*
-						saat pengurutan data, semua data dalam strutc mahasiswa harus diurutkan
-						untuk mencegah terjadinya data yang tidak sinkron
-					*/
-					for(int i = 0; i < jumlah_data; i++){
+					
+				//mengurutkan data yang dimiliki mahasiswa
+				/*
+					saat pengurutan data, semua data dalam strutc mahasiswa harus diurutkan
+					untuk mencegah terjadinya data yang tidak sinkron
+				*/
+				for(int i = 0; i < jumlah_data; i++){
+						
+					for(int j = 0; j < jumlah_data; j++){
+						
+						if(mahasiswa[i].total_grade_angka < mahasiswa[j].total_grade_angka){
 							
-						for(int j = 0; j < jumlah_data; j++){
+							//menukarkan nim mahasiswa
+							string temp_nim;
+							strcpy(temp_nim,mahasiswa[i].nim);
+							strcpy(mahasiswa[i].nim,mahasiswa[j].nim);
+							strcpy(mahasiswa[j].nim,temp_nim);
 							
-							if(mahasiswa[i].total_grade_angka < mahasiswa[j].total_grade_angka){
-								
-								//mengurutkan nama mahasiswa
-								string temp_nama;
-								strcpy(temp_nama,mahasiswa[i].nama);
-								strcpy(mahasiswa[i].nama,mahasiswa[j].nama);
-								strcpy(mahasiswa[j].nama,temp_nama);
-								
-								//menurutkan tugas mahasiswa
+							//menukarkan nama mahasiswa
+							string temp_nama;
+							strcpy(temp_nama,mahasiswa[i].nama);
+							strcpy(mahasiswa[i].nama,mahasiswa[j].nama);
+							strcpy(mahasiswa[j].nama,temp_nama);
+							
+							//menukarkan tugas mahasiswa
+							for(int k = 0; k < 3; k++){
 								int temp_tugas;
-								temp_tugas = mahasiswa[i].total_tugas;
-								mahasiswa[i].total_tugas = mahasiswa[j].total_tugas;
-								mahasiswa[j].total_tugas = temp_tugas;
-								
-								//mengurutkan kuis mahasiswa
-								int temp_kuis;
-								temp_kuis = mahasiswa[i].total_kuis;
-								mahasiswa[i].total_kuis = mahasiswa[j].total_kuis;
-								mahasiswa[j].total_kuis = temp_kuis;
-								
-								//mengurutkan project mahasiswa
-								int temp_project;
-								temp_project = mahasiswa[i].total_project;
-								mahasiswa[i].total_project = mahasiswa[j].total_project;
-								mahasiswa[j].total_project = temp_project;
-								
-								//mengurutkan nilai mid mahasiswa
-								int temp_mid;
-								temp_mid = mahasiswa[i].total_mid;
-								mahasiswa[i].total_mid = mahasiswa[j].total_mid;
-								mahasiswa[j].total_mid = temp_mid;
-								
-								//mengurutkan nilai final mahasiswa
-								int temp_final;
-								temp_final = mahasiswa[i].total_final;
-								mahasiswa[i].total_final = mahasiswa[j].total_final;
-								mahasiswa[j].total_final = temp_final;
-								
-								
-								//mengurutkan grade angka mahasiswa
-								int temp_angka;
-								temp_angka = mahasiswa[i].total_grade_angka;
-								mahasiswa[i].total_grade_angka = mahasiswa[j].total_grade_angka;
-								mahasiswa[j].total_grade_angka = temp_angka;
-								
-								//mengurukan grade huruf mahasiswa
-								string temp_string;
-								strcpy(temp_string,mahasiswa[i].grade.huruf);
-								strcpy(mahasiswa[i].grade.huruf,mahasiswa[j].grade.huruf);
-								strcpy(mahasiswa[j].grade.huruf,temp_string);
-								
+								temp_tugas = mahasiswa[i].tugas[k].nilai;
+								mahasiswa[i].tugas[k].nilai = mahasiswa[j].tugas[k].nilai;
+								mahasiswa[j].tugas[k].nilai = temp_tugas;
 							}
 							
+							//menukarkan total tugas mahasiswa
+							int temp_total_tugas;
+							temp_total_tugas = mahasiswa[i].total_tugas;
+							mahasiswa[i].total_tugas = mahasiswa[j].total_tugas;
+							mahasiswa[j].total_tugas = temp_total_tugas;
+							
+							//menukarkan kuis mahasiswa
+							for(int k = 0; k < 4; k++){
+								int temp_kuis;
+								temp_kuis = mahasiswa[i].kuis[k].nilai;
+								mahasiswa[i].kuis[k].nilai = mahasiswa[j].kuis[k].nilai;
+								mahasiswa[j].kuis[k].nilai = temp_kuis;
+							}
+							
+							//menukarkan total kuis mahasiswa
+							int temp_total_kuis;
+							temp_total_kuis = mahasiswa[i].total_kuis;
+							mahasiswa[i].total_kuis = mahasiswa[j].total_kuis;
+							mahasiswa[j].total_kuis = temp_total_kuis;
+							
+							//mengurutkan project mahasiswa
+							int temp_project;
+							temp_project = mahasiswa[i].total_project;
+							mahasiswa[i].total_project = mahasiswa[j].total_project;
+							mahasiswa[j].total_project = temp_project;
+							
+							//mengurutkan nilai mid mahasiswa
+							int temp_mid;
+							temp_mid = mahasiswa[i].total_mid;
+							mahasiswa[i].total_mid = mahasiswa[j].total_mid;
+							mahasiswa[j].total_mid = temp_mid;
+							
+							//mengurutkan nilai final mahasiswa
+							int temp_final;
+							temp_final = mahasiswa[i].total_final;
+							mahasiswa[i].total_final = mahasiswa[j].total_final;
+							mahasiswa[j].total_final = temp_final;
+							
+							
+							//mengurutkan grade angka mahasiswa
+							int temp_angka;
+							temp_angka = mahasiswa[i].total_grade_angka;
+							mahasiswa[i].total_grade_angka = mahasiswa[j].total_grade_angka;
+							mahasiswa[j].total_grade_angka = temp_angka;
+							
+							//mengurukan grade huruf mahasiswa
+							string temp_string;
+							strcpy(temp_string,mahasiswa[i].grade.huruf);
+							strcpy(mahasiswa[i].grade.huruf,mahasiswa[j].grade.huruf);
+							strcpy(mahasiswa[j].grade.huruf,temp_string);
+							
 						}
 						
 					}
+					
+				}
 				
 				//
 			system("cls");
