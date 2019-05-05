@@ -5,6 +5,7 @@ Nama-nama anggota kelompok:
 - Jannice Salindeho
 - Elen Gumambo
 - Sabrina N. R Lingga
+- Tendean Arter
 
 Note:
 - Tugas ini ditulis dalam bahasa C, dibuat menggunakan aplikasi Dev-C ++ di Windows 10.
