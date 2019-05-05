@@ -7,6 +7,7 @@ Nama-nama anggota kelompok:
 - Sabrina N. R Lingga
 - Tendean Arter
 
+
 Note:
 - Tugas ini ditulis dalam bahasa C, dibuat menggunakan aplikasi Dev-C ++ di Windows 10.
 - Dev-C ++ yang digunakan adalah versi 5.11
