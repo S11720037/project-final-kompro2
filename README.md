@@ -1,12 +1,17 @@
 # project-kompro2
 Repository untuk tugas akhir Computer Programming 2 Universitas Klabat
 
+<hr>
+
 Nama-nama anggota kelompok:
-- Jannice Salindeho
-- Elen Gumambo
+- Gumambo Elen
+- Rembet Tianly Wicklif
+- Runtukahu Novhell Jonas Exsel
+- Salindeho Jannice Felicia
 - Sabrina N. R Lingga
 - Tendean Arter
 
+<hr>
 
 Note:
 - Tugas ini ditulis dalam bahasa C, dibuat menggunakan aplikasi Dev-C ++ di Windows 10.
